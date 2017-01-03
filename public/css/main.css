@@ -1,0 +1,158 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+body {
+  padding-top: 30px;
+  min-width: 500px;
+}
+
+
+/****Heading****/
+
+
+
+/****Shopping Cart Icon****/
+div#cartStatus {
+ 
+  top: 27px;
+  text-align: right;
+   
+}
+i.glyphicon-shopping-cart {
+ font-size: 2em;
+}
+
+span#cartCount {
+ font-size: 1.5em; 
+}
+
+/****Nav Bar****/
+
+
+
+button.navbar-toggle {
+
+  float: left;
+  margin-left: 10px;
+
+}
+
+
+/****Footer****/
+footer {
+ 
+ margin-top: 100px;
+  
+}
+
+
+/****Login Page****/
+
+/*inputs*/
+#loginEmail,#loginPassword, #loginUser, #loginSubmit {
+ 
+  margin-left: 15px;
+ 
+  
+  
+}
+
+.loginFormElement {
+
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+
+/****Registration Page****/
+
+/*inputs*/
+#regSubmit {
+ 
+  margin-left: 15px;
+  margin-top: 20px;
+  
+  
+}
+
+
+
+/*Registration*/
+
+/* Popover Header */
+.popover-title {
+    background-color: #ff0000;
+    color: #ffffff;
+}
+
+i.fa.fa-exclamation-circle {
+ color: red; 
+}
+
+/*Fixes modal freeze-up*/
+body.modal-open div.modal-backdrop { 
+    z-index: 0; 
+}
+
+/*Fixes modal-body need to overflow: auto*/
+.modal-body {
+	overflow: auto;
+}
+
+/*modal colors*/
+
+.modal-primary-color {
+	background-color: #286090;
+	color: white;
+}
+
+.modal-error-color {
+	background-color: #E72C48;
+}
+
+.modal-success-color {
+	background-color: #449D44;
+}
+
+/*modal-typography*/
+h1.modal-title {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+.modal h2.productName {
+    font-weight: bold;
+    font-size: 1.8em;
+}
+
+.modal h3.productPrice {
+	color: #018217;
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+.modal p.productDescription, p.errorDescription {
+	font-size: 1.2em;
+}
+
+.selectError {
+    position: absolute;
+    right: 35px;
+    top: 9px;
+}
+
+/*adds top margins to elements*/
+
+.top5 { margin-top:5px; }
+.top7 { margin-top:7px; }
+.top10 { margin-top:10px; }
+.top15 { margin-top:15px; }
+.top17 { margin-top:17px; }
+.top20 { margin-top:20px; }
+.top30 { margin-top:30px; }
+.top40 { margin-top:40px; }
+.top80 { margin-top:80px; }
