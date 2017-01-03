@@ -1,0 +1,9 @@
+{{#if productDescriptions}}
+	{{> modals/productDescription this}}
+{{else if customerDescriptions}}
+	{{> modals/customerDescription this}}
+{{else if errorMessage}}
+	{{> modals/error this}}
+{{else if ackMessage}}
+	{{> modals/ack this}}
+{{/if}} 

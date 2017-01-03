@@ -1,0 +1,69 @@
+<!-- <main>
+	<h2>Login To Admin Area</h2>
+	<p>Enter password and click submit</p>
+	<p class="error">{{error}}</p>
+	<form action="/login" method="post">
+	  <div class="form-group">
+	    <label for="password">Password</label>
+	    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+	    <button type="submit" class="btn btn-default">Submit</button>
+	  </div>
+	</div>
+</main> -->
+
+<main>
+	<div class="container">
+		
+		<!-- <div class="row"> -->
+		<div class="text-left">
+		<h1>{{heading}}</h1>
+		<p class="lead">NOTE: The group selection is to change the group for the product and not to redirect to a new product group.</p>
+		</div>	
+		<!-- </div>   -->
+		
+	  
+		<div class="row">
+		<div class="col-md-6">
+		<form role="form" action="/admin/updateproduct" method="post">
+		<div class="form-group">
+		<div class="row">
+			<div class="col-md-6">
+				<select class="form-control" id="productSelect">
+					<!-- This imports the product groups from home.js -->
+						<option id="defaultOption">Please Select a Product Group</option>
+							{{#each group}}
+						<option>{{group}}</option>
+					{{/each}}
+				</select>
+			</div>
+		</div>
+		</div>
+		<div class="form-group">
+		<label for="productName" class="loginFormElement">Product Name:</label>
+		<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank." data-placement="right" class="fa fa-exclamation-circle loginError" aria-hidden="true" style="display: none;"></i>
+		<input class="form-control hasError" id="productName" placeholder="">
+		</div>
+		    
+		<div class="form-group">
+		<label for="productPrice" class="loginFormElement">Product Price:</label>
+		<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank and is not in email format." data-placement="right" class="fa fa-exclamation-circle loginError" aria-hidden="true" style="display: none;"></i>
+		<input name="productPrice" class="form-control hasError" id="productPrice" placeholder="">
+		</div>
+		
+		<div class="form-group">
+		<label for="productImage" class="loginFormElement">Product Image:</label>
+		<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank and is not in email format." data-placement="right" class="fa fa-exclamation-circle loginError" aria-hidden="true" style="display: none;"></i>
+		<input name="productPrice" type="file" class="form-control hasError file" id="productPrice">
+		</div>
+		 
+		<div class="form-group">
+  		<label for="productDescription" class="loginFormElement">Product Description:</label>
+  		<textarea class="form-control hasError" rows="5" id="productDescription"></textarea>
+		</div>
+		 
+		<button type="submit" id="submit" class="btn btn-success loginFormElement">Update Product</button> <!-- data-toggle="modal" data-target="#updateMessage" -->
+		</form>
+		</div>
+		</div>
+	</div><!-- /.container -->
+</main>

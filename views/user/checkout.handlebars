@@ -1,0 +1,88 @@
+<main>
+	<div class="container">
+		
+		<div class="text-left">
+			<h1 class="">{{heading}}</h1>
+			<p class="lead">This is the checkout page. If you want to make changes to your cart go back to the <a class="" href="viewcart">view cart page</a> and edit your cart there.</p>
+		</div>	
+		
+		<div class="row">
+		<form class="" role="form form-inline" action="order-complete" method="post">
+		<div class="col-md-6">
+			<h1 class="" id="checkoutName"></h1>
+			<h1 class="" id="checkoutAddress1"></h1>
+			<h1 class="" id="checkoutAddress2"></h1>
+		</div>
+		<div class="col-md-6">
+			
+				<div class="form-group">
+					<label class="" for="credit">Credit Card Number:</label>
+					<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank and is not in Credit card format." data-placement="right" class="fa fa-exclamation-circle checkError" aria-hidden="true" style="display: none;"></i>
+					<input class="form-control hasError" id="credit" name="credit" placeholder="">
+				</div>
+				
+				<div class="form-group">
+					<label class="" for="ccv">CCV Number:</label>
+					<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank and is not in ccv format." data-placement="right" class="fa fa-exclamation-circle checkError" aria-hidden="true" style="display: none;"></i>
+					<input class="form-control hasError" id="ccv" name="ccv">
+				</div>
+				<div class="form-group">
+					<label class="" for="exp">Expiration Date:</label>
+					<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank and is not in MM/DD/YYYY format." data-placement="right" class="fa fa-exclamation-circle checkError" aria-hidden="true" style="display: none;"></i>
+					<input class="form-control hasError" type="date" name="exp" id="exp" placeholder="mm/dd/yyyy" value="">
+				</div>
+					
+			
+		</div>
+		<button type="submit" id="completeCheckout" class="btn btn-primary">Complete Checkout</button>
+		</form>	
+		</div>
+		
+	
+		<div id="checkoutTableHere">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Product Name</th><th>Price Each</th><th>Amount</th><th>Total Price</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>...</td><td>...</td><td>...</td><td>...</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div><!-- /.container -->
+</main>
+
+
+
+
+
+
+
+
+<!-- 
+
+
+var name = "name";
+	var cookieArr = document.cookie.split(";");
+	var match=false;
+	var len = cookieArr.length	
+    for (var i=0; i<len; i++) {
+        if (cookieArr[i].match (name)){
+        	var data = cookieArr[i].split("=");
+        	alert(decodeURIComponent(data[1]));
+var _ID = decodeURIComponent(data[1]);
+document.getElementById("uid").innerHTML = _ID;
+        	match=true;
+        }
+ 	}
+ 	if (!match){alert('Cookie Not Found');}	 -->
+
+
+
+
+
+

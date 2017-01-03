@@ -1,0 +1,67 @@
+<main>
+	<div class="container">
+		<div class="text-left">
+			<h1>{{heading}}</h1>
+			<p class="lead">Before you can checkout you must register.</p>
+			<p class="lead">All fields are required. If you get an
+				<i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+			icon next to a field after clicking the "Register and proceed to checkout" button, hover over the icon to see what the error is.</p>
+		</div>
+		<form role="form" id="registration" action="checkout" method="post">
+			<div class="form-group col-md-6">
+				<label for="regFirstName">First Name:</label>
+				<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank and is not in name format." data-placement="right" class="fa fa-exclamation-circle regError" aria-hidden="true" style="display: none;"></i>	
+				<input class="form-control hasError" id="regFirstName" placeholder="Enter First Name" type="text">
+			</div>
+			<div class="form-group col-md-6">
+				<label for="regLastName">Last Name:</label>
+				<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank and is not in name format." data-placement="right" class="fa fa-exclamation-circle regError" aria-hidden="true" style="display: none;"></i>
+				<input class="form-control hasError" id="regLastName" placeholder="Enter Last Name" >
+			</div>
+			<div class="form-group col-md-5">
+				<label for="regAddress">Address:</label>
+				<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank and is not in address format." data-placement="right" class="fa fa-exclamation-circle regError" aria-hidden="true" style="display: none;"></i>
+				<input class="form-control hasError" id="regAddress" placeholder="Enter Address" >
+			</div>
+			<div class="form-group col-md-4">
+				<label for="regCity">City:</label>
+				<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank and is not in city format." data-placement="right" class="fa fa-exclamation-circle regError" aria-hidden="true" style="display: none;"></i>
+				<input class="form-control hasError" id="regCity" placeholder="Enter City" >
+			</div>
+			<div class="form-group col-md-1">
+				<label for="regState">State:</label>
+				<select class="form-control" id="regState" placeholder="State">
+					{{#each state}}
+					<option>{{state}}</option>
+					{{/each}}
+				</select>
+			</div>
+			<div class="form-group col-md-2">
+				<label for="regZIP">ZIP Code:</label>
+				<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank and is not in ZIP format." data-placement="right" class="fa fa-exclamation-circle regError" aria-hidden="true" style="display: none;"></i>
+				<input class="form-control hasError" id="regZIP" placeholder="Enter ZIP" >
+			</div>
+			<div class="form-group col-md-3">
+				<label for="regPhone">Phone:</label>
+				<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank and is not in phone format." data-placement="right" class="fa fa-exclamation-circle regError" aria-hidden="true" style="display: none;"></i>
+				<input class="form-control hasError" id="regPhone" placeholder="XXX-XXX-XXXX" >
+			</div>
+			<div class="form-group col-md-3">
+				<label for="regEmail">Email:</label>
+				<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank and is not in email format." data-placement="right" class="fa fa-exclamation-circle regError" aria-hidden="true" style="display: none;"></i>
+				<input class="form-control hasError" id="regEmail" name="email" placeholder="Enter Email" >
+			</div>   
+			<div class="form-group col-md-3">
+				<label for="regPassword">Password:</label>
+				<i data-toggle="popover" title="Field error" data-content="Your password must be 8 to 10 characters, contain uppercase letter(s), number(s), and special characters." data-placement="right" class="fa fa-exclamation-circle regError" aria-hidden="true" style="display: none;"></i>
+				<input class="form-control hasError" id="regPassword" name="password" placeholder="Enter Password" type="password">
+			</div>
+			<div class="form-group col-md-3">
+				<label for="regConfirmPassword">Confirm Password:</label>
+				<i data-toggle="popover" title="Field error" data-content="Your confirm password did not match your password." data-placement="right" class="fa fa-exclamation-circle regError" aria-hidden="true" style="display: none;"></i>
+				<input class="form-control hasError" id="regConfirmPassword" placeholder="Confirm Password" type="password">
+			</div><!-- <div class="form-group col-md-3">  -->
+			<button type="submit" id="regSubmit" class="btn btn-primary">Register and Proceed to Checkout</button>
+		</form>
+	</div><!-- /.container -->
+</main>

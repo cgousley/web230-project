@@ -1,0 +1,42 @@
+<main>
+	<div class="container">
+		
+		<div class="text-left">
+			<h1 class="">ADMIN Checkout</h1>
+			<p class="lead">This is the checkout page. If you want to make changes to your cart go back to the <a class="" href="viewcart">view cart page</a> and edit your cart there.</p>
+		</div>	
+		
+		<div class="row">
+		<form class="" role="form form-inline" action="order-complete" method="post">
+		<div class="col-md-6">
+			<h1 class="" id="checkoutName">Clayton G. Ousley</h1>
+			<h1 class="" id="checkoutAddress1">802 Barton Drive</h1>
+			<h1 class="" id="checkoutAddress2">Ann Arbor, MI 48105</h1>
+		</div>
+		<div class="col-md-6">
+			
+				<div class="form-group">
+					<label class="" for="checkoutCreditNum">Credit Card Number:</label>
+					<input class="form-control" id="checkoutCreditNum" placeholder="">
+				</div>
+				<div class="form-group">
+					<label class="" for="checkoutCCV">CCV Number:</label>
+					<input class="form-control" id="checkoutCCV">
+				</div>
+				<div class="form-group">
+					<label class="" for="checkoutExpiration">Expiration Date:</label>
+					<input class="form-control" id="checkoutExpiration" placeholder="mm/dd/yyyy">
+				</div>
+					
+			
+		</div>
+		<button type="submit" id="regSubmit" class="btn btn-primary">Complete Checkout</button>
+		</form>	
+		</div>
+		
+	
+		<div class="checkoutCart">
+			{{> checkoutTable this}}
+		</div>
+	</div><!-- /.container -->
+</main>

@@ -1,0 +1,82 @@
+<main id="selectProduct" style="display: block">
+		<div class="container">
+		<div class="text-left">
+			<h1>{{heading}}</h1>
+			<p class="lead">To search for products you can either select a product group or enter the product name.</p>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+		
+		
+			<i data-toggle="popover" title="Field error" data-content="Please Select a Product Group." data-placement="right" class="fa fa-exclamation-circle selectError" aria-hidden="true" style="display: none"></i>
+				<form name="productSelect" action="/admin/updateThisNow" method="post">
+					<select class="form-control" id="productSelect">
+						<!-- This imports the product groups from home.js -->
+							<option id="defaultOption">Please Select a Product Group</option>
+								{{#each group}}
+							<option id="{{group_id}}" class="productGroupNameTable" value="{{group_name}}">{{group_name}}</option>
+								{{/each}}
+					</select>
+				</form>
+				<div><p id="show"></p></div>
+			</div>
+		</div>
+		<div class="container" id="updateProductTable"  style="display: none">
+			<table class="table table-striped">
+	
+</table>
+			
+			
+		</div>
+	</div><!-- /.container -->
+</main>
+<div id="updateProduct" style="display: none">
+	<div class="container">
+		
+	  
+		<div class="row">
+		<div class="col-md-6">
+		
+		<div class="form-group" style="display: none">
+		<label for="pId">Product ID:</label>
+		<input class="form-control" name="pId" id="pId" placeholder="">
+		</div>
+
+
+		<div class="form-group">
+		<label for="pname">Product Name:</label>
+		<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank." data-placement="right" class="fa fa-exclamation-circle addError" aria-hidden="true" style="display: none;"></i>
+		<input class="form-control hasError" name="pname" id="pname" placeholder="">
+		</div>
+		    
+		<div class="form-group">
+		<label for="pprice">Product Price:</label>
+		<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank and is not in dollar format." data-placement="right" class="fa fa-exclamation-circle addError" aria-hidden="true" style="display: none;"></i>
+		<input name="pprice" class="form-control hasError" id="pprice" placeholder="">
+		</div>
+		
+		<div class="form-group">
+		<label for="file">Product Image:</label>
+		<i data-toggle="popover" title="Field error" data-content="If uploading a new image, it must be a jpg/jpeg." data-placement="right" class="fa fa-exclamation-circle addError" aria-hidden="true" style="display: none;"></i>
+		<input name="file" type="file" class="form-control hasError file" id="file">
+		</div>
+		
+		<div class="form-group" style="display: none">
+		<label for="pimagePath">Product Image Path:</label>
+		<input class="form-control" name="pimagePath" id="pimagePath" placeholder="">
+		</div>
+		 
+		<div class="form-group">
+  		<label for="pdescription">Product Description:</label>
+  		<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank." data-placement="right" class="fa fa-exclamation-circle addError" aria-hidden="true" style="display: none;"></i>
+  		<textarea class="form-control hasError" rows="5" name="pdescription" id="pdescription"></textarea>
+		</div>
+		
+		<div id="ack"></div>
+		 
+		<button id="submitUpdateProduct" class="btn btn-success">Update Product</button> <!-- data-toggle="modal" data-target="#updateMessage" -->
+		</form>
+		</div>
+		</div>
+	</div><!-- /.container -->
+</div>

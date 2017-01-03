@@ -1,0 +1,32 @@
+<main>
+	<div class="container">
+		
+		<!-- <div class="row"> -->
+		<div class="text-left">
+		<h1>{{heading}}</h1>
+		<p class="lead">Please login to enter the administrative area.</p>
+		</div>	
+		<!-- </div>   -->
+		
+	  
+		<div class="row">
+		<div class="col-md-6">
+		<form role="form" action="/admin/addgroup" method="post">
+		<div class="form-group">
+		<label for="newGroupName" class="loginFormElement">Group Name:</label>
+		<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank." data-placement="right" class="fa fa-exclamation-circle loginError" aria-hidden="true" style="display: none;"></i>
+		<input class="form-control hasError" id="newGroupName" placeholder="">
+		</div>
+		    
+		<div class="form-group">
+		<label for="newGroupFolder" class="loginFormElement">Image Folder Name:</label>
+		<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank and is not in email format." data-placement="right" class="fa fa-exclamation-circle loginError" aria-hidden="true" style="display: none;"></i>
+		<input type="text" class="form-control hasError" id="newGroupFolder" placeholder="">
+		</div>
+		 
+		<button id="submitAddGroup" class="btn btn-success loginFormElement" >Add Group</button> <!-- data-toggle="modal" data-target="#updateMessage" -->
+		</form>
+		</div>
+		</div>
+	</div><!-- /.container -->
+</main>

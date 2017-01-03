@@ -1,0 +1,46 @@
+<!-- <main>
+	<h2>Login To Admin Area</h2>
+	<p>Enter password and click submit</p>
+	<p class="error">{{error}}</p>
+	<form action="/login" method="post">
+	  <div class="form-group">
+	    <label for="password">Password</label>
+	    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+	    <button type="submit" class="btn btn-default">Submit</button>
+	  </div>
+	</div>
+</main> -->
+
+<main>
+	<div class="container">
+		
+		<!-- <div class="row"> -->
+		<div class="text-left">
+		<h1>{{heading}}</h1>
+		<p class="lead">{{error}}</p>
+		<p class="lead">Please login to enter the administrative area.</p>
+		</div>	
+		<!-- </div>   -->
+		
+	  
+		<div class="row">
+		<div class="col-md-6">
+		<form role="form" action="/admin/login" method="post">
+		<div class="form-group">
+		<label for="loginEmail" class="loginFormElement">Email</label>
+		<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank." data-placement="right" class="fa fa-exclamation-circle loginError" aria-hidden="true" style="display: none;"></i>
+		<input class="form-control hasError" name="email" id="loginEmail" placeholder="Enter username">
+		</div>
+		    
+		<div class="form-group">
+		<label for="loginPassword" class="loginFormElement">Password</label>
+		<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank and is not in email format." data-placement="right" class="fa fa-exclamation-circle loginError" aria-hidden="true" style="display: none;"></i>
+		<input type="password" name="password" class="form-control hasError" id="loginPassword" placeholder="Enter Password">
+		</div>
+		 
+		<button type="submit" id="submitLogin" class="btn btn-success loginFormElement">Access Admin Area</button>
+		</form>
+		</div>
+		</div>
+	</div><!-- /.container -->
+</main>

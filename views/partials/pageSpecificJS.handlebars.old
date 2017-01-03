@@ -1,0 +1,11 @@
+
+
+{{#if regVal}}
+	<script src="/public/js/validation/regVal.js"></script>
+{{else if loginVal}}
+	<script src="/public/js/validation/loginVal.js"></script>
+{{else if productTable2Appear}}
+	<script src="/public/js/productTable2Appear.js"></script>
+{{else if textVal}}
+	<script src="../public/js/validation/textVal.js"></script>
+{{/if}}

@@ -1,0 +1,83 @@
+{{#if nav}}
+		<div class="container">
+			<div class="navbar navbar-inverse">
+			  <div class="container">
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			     <!-- <a class="navbar-brand" href="#">Brand</a>-->
+			    </div>
+			    <div class="collapse navbar-collapse">
+			      <ul class="nav navbar-nav">
+			        <li><a href="/">Home</a></li>
+			        <li><a href="viewcart">View Cart</a></li>
+			        <li><a href="/checkout">Checkout</a></li>
+			      </ul>
+			    </div><!--/.nav-collapse -->
+			  </div>
+			</div>
+		</div>
+	{{else if cart}}
+		<div class="container">
+			<div class="navbar navbar-inverse">
+			  <div class="container">
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			     <!-- <a class="navbar-brand" href="#">Brand</a>-->
+			    </div>
+			    <div class="collapse navbar-collapse">
+			      <ul class="nav navbar-nav">
+			        <li><a href="/">Home</a></li>
+			        <li><a href="viewcart">View Cart</a></li>
+			        <li><a href="/checkout">Checkout</a></li>
+			        <li><a href="logout">Logout</a></li>
+			      </ul>
+			    </div><!--/.nav-collapse -->
+			  </div>
+			</div>
+		</div>
+	{{else if blankBar}}
+		<div class="container">
+			<div class="navbar navbar-inverse">
+			  <div class="container">
+			    <div class="navbar-header">
+			     <!-- <a class="navbar-brand" href="#">Brand</a>-->
+			    </div>
+			    <div class="collapse navbar-collapse">
+			    </div><!--/.nav-collapse -->
+			  </div>
+			</div>
+		</div>
+	{{else if admin}}
+		<div class="container">
+			<div class="navbar navbar-inverse">
+			  <div class="container">
+			    <div class="navbar-header">
+			      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			        <span class="icon-bar"></span>
+			      </button>
+			     <!-- <a class="navbar-brand" href="#">Brand</a>-->
+			    </div>
+			    <div class="collapse navbar-collapse">
+			      <ul class="nav navbar-nav">
+			        <li><a href="/admin/">Home</a></li>
+			        <li><a href="addProduct">Add Product</a></li>
+			        <li><a href="updateProduct">Update Product(s)</a></li>
+			        <li><a href="addGroup">Add Product Group</a></li>
+			        <li><a href="checkOrders">Check Customer Orders</a></li>
+			        <li><a href="logout">Logout</a></li>
+			      </ul>
+			    </div><!--/.nav-collapse -->
+			  </div>
+			</div>
+		</div>
+{{/if}}

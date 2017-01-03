@@ -1,0 +1,14 @@
+<main>
+	<div class="container">
+		<div class="text-left">
+		<h1>{{heading}}</h1>
+		<p class="lead">To Remove an item from your cart, set the amount to zero and click the "Update" button.</p>
+		</div>
+		<div class="container" id="cartTable">
+			<form action="/checkout">
+				<button class="btn btn-primary" id="viewCartCheckOut" type="submit">Check Out</button>
+				{{>cartTable here}}
+			</form>
+		</div>
+	</div><!-- /.container -->
+</main>

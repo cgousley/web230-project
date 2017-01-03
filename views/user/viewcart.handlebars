@@ -1,0 +1,52 @@
+<main>
+	<div class="container">
+		<div class="text-left">
+		<h1>{{heading}}</h1>
+		<p class="lead"></p>
+		</div>
+		<div class="container" id="cartTable">
+			<form action="/checkout">
+				<button class="btn btn-primary" id="viewCartCheckOut" type="submit">Check Out</button>
+				
+
+				<div id="tableHere"></div>
+
+				<script>
+					// (function(){
+// 						
+						// if(localStorage.getItem('cart') !== undefined){
+							// var cart = JSON.parse(localStorage.getItem('cart'));
+						 	// // console.log(JSON.stringify(json));
+// 							
+							// var len = cart.length;
+							// var table = '<table class="table table-striped">';
+							// table += '<thead><tr><th>Image</th><th>Product Name</th><th>Price</th><th>Amount</th><th>Description</th><th>Update</th></tr></thead>';
+							// table+='<tbody>';
+// 							
+// 							
+// 							 
+							// for (i = 0; i<len; i++){
+								// table += '<tr>';
+								// table += '<td><img src="'+cart[i].image+'"alt="'+cart[i].description+'"id="'+cart[i]._id+'"height="150"/></td>';
+								// table += '<td>'+cart[i].name+'</td>';
+								// table += '<td>'+cart[i].price+'</td>';
+								// table += '<td><input type="text" class="form-control" value="'+cart[i].quantity+'"></td>';
+								// table += '<td><button type="button" class="btn btn-primary">Description</button></td>';
+								// table += '<td><button type="button" class="btn btn-success">Update</button></td>';
+								// table +='</tr>';							
+							// }
+// 							
+							 // table+='</tbody>';
+							 // table+='</table>';
+// 							
+							// document.getElementById('tablehere').innerHTML = table//JSON.stringify(cart);
+// 							
+						// }  
+// 						
+					// })()
+				</script>
+				
+			</form>
+		</div>
+	</div><!-- /.container -->
+</main>

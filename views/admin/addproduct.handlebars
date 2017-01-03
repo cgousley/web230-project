@@ -1,0 +1,77 @@
+<!-- <main>
+	<h2>Login To Admin Area</h2>
+	<p>Enter password and click submit</p>
+	<p class="error">{{error}}</p>
+	<form action="/login" method="post">
+	  <div class="form-group">
+	    <label for="password">Password</label>
+	    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+	    <button type="submit" class="btn btn-default">Submit</button>
+	  </div>
+	</div>
+</main> -->
+
+<main>
+	<div class="container">
+		
+		<!-- <div class="row"> -->
+		<div class="text-left">
+		<h1>{{heading}}</h1>
+		</div>	
+		<!-- </div>   -->
+		
+	  
+		<div class="row">
+		<div class="col-md-6">
+			<i data-toggle="popover" title="Field error" data-content="Please Select a Product Group." data-placement="right" class="fa fa-exclamation-circle selectError" aria-hidden="true" style="display: none"></i>
+		<form role="form" enctype="multipart/form-data">
+		<div class="form-group" action="/admin/addProduct" method="post">
+				<select class="form-control" id="productSelect">
+					<!-- This imports the product groups from home.js -->
+						<option id="defaultOption">Please Select a Product Group</option>
+							{{#each group}}
+						<option id="{{group_id}}" class="productGroupName" value="{{group_name}}">{{group_name}}</option>
+							{{/each}}
+				</select>
+		</div>
+		
+		
+		
+		<div class="form-group">
+		<label for="pname">Product Name:</label>
+		<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank." data-placement="right" class="fa fa-exclamation-circle addError" aria-hidden="true" style="display: none;"></i>
+		<input class="form-control hasError" name="pname" id="pname" placeholder="">
+		</div>
+		    
+		<div class="form-group">
+		<label for="pprice">Product Price:</label>
+		<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank and is not in dollar format." data-placement="right" class="fa fa-exclamation-circle addError" aria-hidden="true" style="display: none;"></i>
+		<input name="pprice" class="form-control hasError" id="pprice" placeholder="">
+		</div>
+		
+		<div class="form-group">
+		<label for="file">Product Image:</label>
+		<i data-toggle="popover" title="Field error" data-content="Field name must be jpg/jpeg." data-placement="right" class="fa fa-exclamation-circle addError" aria-hidden="true" style="display: none;"></i>
+		<input name="file" type="file" class="form-control hasError file" id="file">
+		</div>
+		 
+		<div class="form-group" style = "display: none">
+		<label for="pimagePath">Product Image Path:</label>
+		<input class="form-control" name="pimagePath" id="pimagePath" placeholder="">
+		</div>
+		
+		<div class="form-group">
+  		<label for="pdescription">Product Description:</label>
+  		<i data-toggle="popover" title="Field error" data-content="Field name cannot be blank." data-placement="right" class="fa fa-exclamation-circle addError" aria-hidden="true" style="display: none;"></i>
+  		<textarea class="form-control hasError" rows="5" name="pdescription" id="pdescription"></textarea>
+		</div>
+		
+		<div id="ack"></div>
+		 
+		<button id="submitAddProduct" class="btn btn-success">Add Product</button> <!-- data-toggle="modal" data-target="#updateMessage" -->
+		</div>
+		</form>
+		</div>
+		
+	</div><!-- /.container -->
+</main>

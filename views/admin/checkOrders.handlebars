@@ -1,0 +1,51 @@
+<main>
+	<div class="container">
+		<div class="text-left">
+			<h1>{{heading}}</h1>
+			<p class="lead">To search for products you can either select a product group or enter the product name.</p>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<select class="form-control" id="userSelect">
+					<!-- This imports the users -->
+						<option id="defaultOption">Please Select a Customer</option>
+							{{#each user}}
+						<option id="{{_id}}" class="userNameTable" value="{{_id}}">{{fname}} {{lname}}</option>
+							{{/each}}
+				</select>
+			</div>
+		</div> 
+		<div class="container" id="userTable"  style="display: none">
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Date and Time</th><th>Order Number</th><th>Get Details</th>
+		</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>...</td><td>...</td><td><button class="btn btn-primary" data-toggle="modal" data-target="#customerDescription">Details</button></td>
+	</tr>
+	<tr>
+		<td>...</td><td>...</td><td><button class="btn btn-primary" data-toggle="modal" data-target="#customerDescription">Details</button></td>
+	</tr>
+	<tr>
+		<td>...</td><td>...</td><td><button class="btn btn-primary" data-toggle="modal" data-target="#customerDescription">Details</button></td>
+	</tr>
+	<tr>
+		<td>...</td><td>...</td><td><button class="btn btn-primary" data-toggle="modal" data-target="#customerDescription">Details</button></td>
+	</tr>
+	<tr>
+		<td>...</td><td>...</td><td><button class="btn btn-primary" data-toggle="modal" data-target="#customerDescription">Details</button></td>
+	</tr>
+	<tr>
+		<td>...</td><td>...</td><td><button class="btn btn-primary" data-toggle="modal" data-target="#customerDescription">Details</button></td>
+	</tr>
+	<tr>
+		<td>...</td><td>...</td><td><button class="btn btn-primary" data-toggle="modal" data-target="#customerDescription">Details</button></td>
+	</tr>
+</tbody>
+</table>
+		</div>
+	</div><!-- /.container -->
+</main>
