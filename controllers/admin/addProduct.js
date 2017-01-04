@@ -27,8 +27,8 @@ module.exports = {
            	});
            /*IF THERE IS AN ERROR PARAMETER PASSED WITH THE VALUE OF 1 THEN DISPLAY AN ERROR MESSAGE AND SHOW THE LOGIN PAGE.*/
 		}
-		//If session is success but privlege is user, redirect to 401
-        else if(req.session.success && req.session.user){
+		//If session is success but privlege is user and not admin, redirect to 401
+        else if(req.session.success && req.session.user && !req.session.admin){
         	// res.render('views/401', {nav: true, subtitle: " - Page Not Found", image: "https://httpstatusdogs.com/img/401.jpg",  text: "<p class='lead text-center top20'>You're not authorized to view this page.</br>"+"But you're not stuck! Our navigation bar is above!</p>"});
         	   res.redirect('../401'); 
         }	
