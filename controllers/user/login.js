@@ -111,15 +111,42 @@ module.exports = {
 
      /*THIS IS THE LOGOUT PAGE WHERE THE SESSION IS DESTROYED*/
      logout: function(req, res){
-          req.session.destroy(function(err){
-               if(err){
-                    console.log(err);
-               }
-               else{
-                    
+     	
+	 	//If there is only an user session, destroy the entire session object
+		if (req.session.success && req.session.user && !req.session.admin){
+     		
+      		req.session.destroy(function(err){
+				if(err){
+            	    console.log(err);
+ 	      		}
+               	
+               	else{
                     res.redirect('/');
                }
-          });
+         	});
+
+		}
+		//If there is an admin and a user session, delete the user session 
+		else if(req.session.success && req.session.admin && req.session.user){
+			
+			//This defines the admin session object delete function, with an err callback
+			deleteUserSess=function(callback){
+				delete req.session.user;
+				callback();	
+			}
+
+			//If the the admin session object delete function throws an error, console.log it
+			//If no error, redirect to user home 
+			deleteUserSess(function(err){
+				if(err){
+					console.log(err);
+				}
+				else{
+					res.redirect('/');
+				}
+			});
+		}
+     	
      }
 
 }
