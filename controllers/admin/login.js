@@ -145,7 +145,7 @@ module.exports = {
 
 }
 
-op.deleteAdminSess=function(callback){
+op.deleteAdminSess=function(err){
 				
 	console.log('deleteAdminSess fired');
 	// delete req.session.admin;
