@@ -72,17 +72,35 @@ module.exports = {
      }, 
 
 
-     /*THIS IS THE LOGOUT PAGE WHERE THE SESSION IS DESTROYED*/
-     logout: function(req, res){
-          req.session.destroy(function(err){
-               if(err){
-                    console.log(err);
-               }
-               else{
-                    
+    /*THIS IS THE LOGOUT PAGE WHERE THE SESSION IS DESTROYED*/
+	logout: function(req, res){
+     	
+	 	//If there is only an admin session, destroy the entire session object
+		if (req.session.success && req.session.admin && !req.session.user){
+     		
+      		req.session.destroy(function(err){
+				if(err){
+            	    console.log(err);
+ 	      		}
+               	
+               	else{
                     res.redirect('/');
                }
-          });
+         	});
+
+		}
+		//If there is an admin and a user session, delete the admin session 
+		else if(req.session.success && req.session.admin && req.session.user){
+			delete req.session.admin(function(err){
+				if(err){
+					console.log(err);
+				}
+				else{
+					res.redirect('/');
+				}
+			});
+		}
+     	
      }
 
 }
