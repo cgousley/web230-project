@@ -44,23 +44,43 @@ module.exports = {
 										if (err){
 											console.log(err);
 										}
-										else if (success) {// if found, create session 
-											req.session.regenerate(function(err){												
-												if (err){
-													console.log(err);
-												}
-												//IF SUCCESSFUL LOGIN CREATE SESSION SUCCESS PROPERTY AND REDIRECT TO ADMIN HOME PAGE
-                   								else{//if session creation successful, send access approved
-                   									console.log("success");
-                         							req.session.success = 'access approved';
-                         							req.session.admin = 'success';
+										else if (success) {// if found, create session
+											
+											
+											//If session already exists, add req.session.admin
+											if (req.session.success){
+											
+												req.session.admin = 'success';
                          							var data = {};
 													                         							
                          							//send user ID for addess and for inclusing in cart submit 
                          							data._id = admin._id;
                          							res.send(data);	
+												
+											}
+											
+											//If no session exists
+											else {
+												
+												req.session.regenerate(function(err){												
+													if (err){
+														console.log(err);
+													}
+													//IF SUCCESSFUL LOGIN CREATE SESSION SUCCESS PROPERTY AND REDIRECT TO ADMIN HOME PAGE
+	                   								else{//if session creation successful, send access approved
+	                   									console.log("success");
+	                         							req.session.success = 'access approved';
+	                         							req.session.admin = 'success';
+	                         							var data = {};
+														                         							
+	                         							//send user ID for addess and for inclusing in cart submit 
+	                         							data._id = admin._id;
+	                         							res.send(data);	
                          							}
-											})
+												});
+												
+											}
+											
 										}
 										else {// password not found
 											res.send("admin not found");		
