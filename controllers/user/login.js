@@ -12,7 +12,7 @@ module.exports = {
           
           if(req.session.success && req.session.user){
              res.redirect('../../checkout');
-           }
+          } 
            /*IF THERE IS AN ERROR PARAMETER PASSED WITH THE VALUE OF 1 THEN DISPLAY AN ERROR MESSAGE AND SHOW THE LOGIN PAGE.*/
            else if (query.error == 1){
               // error = "You do not have access to the admin area";
