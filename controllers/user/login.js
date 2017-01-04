@@ -10,7 +10,7 @@ module.exports = {
           var query = url_parts.query;
           
           
-          if(req.session.success){
+          if(req.session.success && req.session.user){
              res.redirect('../../checkout');
            }
            /*IF THERE IS AN ERROR PARAMETER PASSED WITH THE VALUE OF 1 THEN DISPLAY AN ERROR MESSAGE AND SHOW THE LOGIN PAGE.*/
