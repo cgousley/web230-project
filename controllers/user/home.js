@@ -12,7 +12,7 @@ module.exports = {
 			console.log(err);
 		}
 		else{
-			if(req.session.success){
+			if(req.session.success && req.session.user){
 				 res.render('user/home',{title: 'Shopping Cart - Home', heading: 'Home Page', cart: true, group: productGroups, product: productDetails, productDescriptions: true, userHead: true});
            	}
            	else{
