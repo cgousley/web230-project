@@ -30,17 +30,17 @@ module.exports = {
                         var data = JSON.parse(req.body.data);
 
 // 							Checks for the user email
-							userModel.findOne({"email": data.email}, function(err, user){
+							adminModel.findOne({"email": data.email}, function(err, admin){
 							if (err){
 								console.log(err);
 							}
 							else {//if not found, alert user not found
-								if(user === null){
-									res.send("user not found");
+								if(admin === null){
+									res.send("admin not found");
 								}
 								else{// else if found, check for encrypted password
 									var bcrypt = require('bcrypt');
-									bcrypt.compare(data.password, user.password, function(err, success){
+									bcrypt.compare(data.password, admin.password, function(err, success){
 										if (err){
 											console.log(err);
 										}
@@ -57,13 +57,13 @@ module.exports = {
                          							var data = {};
 													                         							
                          							//send user ID for addess and for inclusing in cart submit 
-                         							data._id = user._id;
+                         							data._id = admin._id;
                          							res.send(data);	
                          							}
 											})
 										}
 										else {// password not found
-											res.send("user not found");		
+											res.send("admin not found");		
 										}
 									})
 								}
