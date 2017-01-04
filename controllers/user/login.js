@@ -48,6 +48,30 @@ module.exports = {
 										}
 										else if (success) {
 											
+											
+											
+											//If session already exists, add req.session.user
+											if (req.session.success){
+											
+												req.session.user = {
+                         								name : user.fname+' '+user.lname,
+                         								address1 : user.address,
+                         								address2 : user.city+', '+user.state+' '+user.zip,
+                         								
+                         							};
+                         							
+                         							console.log('session made');
+                         							
+                         							res.cookie('name', JSON.stringify(user._id));
+                         							
+                         							res.render('user/checkout');
+                         							console.log('login render made');
+												
+											}
+											
+											//If no session exists
+											else {
+																					
 											req.session.regenerate(function(err){												
 												if (err){
 													console.log(err);
@@ -69,8 +93,10 @@ module.exports = {
                          							
                          							res.render('user/checkout');
                          							console.log('login render made');
-                         							}
-											})
+                     							}
+											});
+											
+											}
                  							
 										}
 										else {
