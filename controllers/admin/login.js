@@ -111,17 +111,46 @@ module.exports = {
 		}
 		//If there is an admin and a user session, delete the admin session 
 		else if(req.session.success && req.session.admin && req.session.user){
-				console.log('deleted admin');
-			delete req.session.admin(function(err){
+			
+			function deleteAdminSess(function(err){
+				console.log('deleteAdminSess if err fired');
 				if(err){
 					console.log(err);
 				}
 				else{
-					res.redirect('/');
+					// res.redirect('/');
+					console.log('deleteAdminSess no err');
 				}
-			});
+			}){
+				console.log('deleteAdminSess fired');
+				delete req.session.admin;
+				
+			}
+			
+			
+			
+			
+// 			
+// 			
+			// delete req.session.admin(function(err){
+				// if(err){
+					// console.log(err);
+				// }
+				// else{
+					// res.redirect('/');
+				// }
+				// console.log('deleted admin');
+			// });
 		}
      	
      }
 
 }
+// 
+// deleteAdminSess=function(){
+// 	
+	// console.log('deleteAdminSess fired');
+// 	
+// 	
+// 	
+// }
