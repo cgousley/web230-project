@@ -98,6 +98,7 @@ module.exports = {
 				else{
 					res.redirect('/');
 				}
+				console.log('deleted admin');
 			});
 		}
      	
