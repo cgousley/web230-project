@@ -117,6 +117,7 @@ module.exports = {
 			op.deleteAdminSess(req.session, function(err){
 				console.log('deleteAdminSess if err fired');
 				if(err){
+					console.log('deleteAdminSess err');
 					console.log(err);
 				}
 				else{
@@ -148,6 +149,6 @@ module.exports = {
 op.deleteAdminSess=function(callback){
 				
 	console.log('deleteAdminSess fired');
-	delete req.session.admin;
+	// delete req.session.admin
 	callback();	
 }
