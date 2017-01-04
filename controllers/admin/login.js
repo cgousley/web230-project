@@ -1,7 +1,7 @@
 var userModel = require('../../models').Users;
 var adminModel = require('../../models').Admins;
 
-op = {};
+// op = {};
 
 module.exports = {
 	/*LOGIN PAGE FIRST LOAD*/
@@ -114,7 +114,15 @@ module.exports = {
 		//If there is an admin and a user session, delete the admin session 
 		else if(req.session.success && req.session.admin && req.session.user){
 			
-			op.deleteAdminSess(req.session, function(err){
+deleteAdminSess=function(callback){
+				
+	console.log('deleteAdminSess fired');
+	delete req.session.admin;
+	callback();	
+}
+
+
+			deleteAdminSess(function(err){
 				console.log('deleteAdminSess if err fired');
 				if(err){
 					console.log('deleteAdminSess err');
@@ -146,9 +154,3 @@ module.exports = {
 
 }
 
-op.deleteAdminSess=function(session, callback){
-				
-	console.log('deleteAdminSess fired');
-	delete req.session.admin;
-	callback();	
-}
