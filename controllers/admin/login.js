@@ -52,7 +52,7 @@ module.exports = {
 											
 												req.session.admin = 'success';
                          							var data = {};
-													                         							
+					 								                         							
                          							//send user ID for addess and for inclusing in cart submit 
                          							data._id = admin._id;
                          							res.send(data);	
@@ -112,7 +112,7 @@ module.exports = {
 		//If there is an admin and a user session, delete the admin session 
 		else if(req.session.success && req.session.admin && req.session.user){
 			
-			function deleteAdminSess(function(err){
+			op.deleteAdminSess(function(err){
 				console.log('deleteAdminSess if err fired');
 				if(err){
 					console.log(err);
@@ -121,11 +121,7 @@ module.exports = {
 					// res.redirect('/');
 					console.log('deleteAdminSess no err');
 				}
-			}){
-				console.log('deleteAdminSess fired');
-				delete req.session.admin;
-				
-			}
+			});
 			
 			
 			
@@ -146,11 +142,10 @@ module.exports = {
      }
 
 }
-// 
-// deleteAdminSess=function(){
-// 	
-	// console.log('deleteAdminSess fired');
-// 	
-// 	
-// 	
-// }
+
+op.deleteAdminSess=function(){
+				
+	console.log('deleteAdminSess fired');
+	// delete req.session.admin;
+					
+}
