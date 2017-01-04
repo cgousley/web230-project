@@ -1,6 +1,8 @@
 var userModel = require('../../models').Users;
 var adminModel = require('../../models').Admins;
 
+op = {};
+
 module.exports = {
 	/*LOGIN PAGE FIRST LOAD*/
      index: function(req, res){
