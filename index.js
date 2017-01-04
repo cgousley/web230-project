@@ -27,13 +27,13 @@ mongoose.connection.on('open',function(){
 mongoose.Promise = global.Promise;
 
 /* THE DEFAULT PORT FOR HTTPS IS 443.*/
-app.set('port',process.env.PORT || 1443);
+app.set('port',process.env.PORT || 443);
 
 /* MAKE THE VIEWS DIRECTORY SO WE CAN SERVE UP THE FILES WITHIN THAT DIRECTORY */
 app.set('views', __dirname + '/views');
 
 /*LISTEN ON PORT 80 */
-http.createServer(app).listen(1080);
+http.createServer(app).listen(80);
 
 https.createServer(options, app).listen(app.get('port'),function(){
 	console.log('Server up : https://67.205.130.48:' + app.get('port'));
