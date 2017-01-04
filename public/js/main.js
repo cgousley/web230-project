@@ -1741,7 +1741,7 @@ op.checkForFileThenSubmit = function(e){
 op.addGroupNow = function(e){
 	// prevent submit of form, and alert working message
 	e.preventDefault();
-	op.ackMsg('Adding Group, Please Wait...', '#6c6', '', true, false);
+	op.ackMsg('Adding Group, Please Wait...', '', '#6C6', true, false);
 	
 	// grab new group details, add to data object
 	var data = {};
