@@ -114,7 +114,7 @@ module.exports = {
 		//If there is an admin and a user session, delete the admin session 
 		else if(req.session.success && req.session.admin && req.session.user){
 			
-			op.deleteAdminSess(function(err){
+			op.deleteAdminSess(req.session, function(err){
 				console.log('deleteAdminSess if err fired');
 				if(err){
 					console.log(err);
