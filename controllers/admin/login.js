@@ -114,40 +114,22 @@ module.exports = {
 		//If there is an admin and a user session, delete the admin session 
 		else if(req.session.success && req.session.admin && req.session.user){
 			
-deleteAdminSess=function(callback){
-				
-	console.log('deleteAdminSess fired');
-	delete req.session.admin;
-	callback();	
-}
+			//This defines the admin session object delete function, with an err callback
+			deleteAdminSess=function(callback){
+				delete req.session.admin;
+				callback();	
+			}
 
-
+			//If the the admin session object delete function throws an error, console.log it
+			//If no error, redirect to user home 
 			deleteAdminSess(function(err){
-				console.log('deleteAdminSess if err fired');
 				if(err){
-					console.log('deleteAdminSess err');
 					console.log(err);
 				}
 				else{
 					res.redirect('/');
-					console.log('deleteAdminSess no err');
 				}
 			});
-			
-			
-			
-			
-// 			
-// 			
-			// delete req.session.admin(function(err){
-				// if(err){
-					// console.log(err);
-				// }
-				// else{
-					// res.redirect('/');
-				// }
-				// console.log('deleted admin');
-			// });
 		}
      	
      }
