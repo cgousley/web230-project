@@ -120,7 +120,7 @@ module.exports = {
 					console.log(err);
 				}
 				else{
-					// res.redirect('/');
+					res.redirect('/');
 					console.log('deleteAdminSess no err');
 				}
 			});
@@ -148,6 +148,6 @@ module.exports = {
 op.deleteAdminSess=function(callback){
 				
 	console.log('deleteAdminSess fired');
-	// delete req.session.admin;
+	delete req.session.admin;
 	callback();	
 }
