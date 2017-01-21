@@ -6,7 +6,7 @@ var routes = require('./routes'),
 	bodyParser = require('body-parser'),
 	session = require('express-session'),
 	cookieParser = require('cookie-parser'),
-	mongoose = require('mongoose'),
+	mongoose = require('mongoose');
 	
 module.exports = function(app){
 	/*SET UP BODYPARSER	*/
