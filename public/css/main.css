@@ -156,3 +156,12 @@ h1.modal-title {
 .top30 { margin-top:30px; }
 .top40 { margin-top:40px; }
 .top80 { margin-top:80px; }
+
+
+/****Navigation****/
+
+
+/*adds left margin to navbar-right*/
+
+.navbar-right {margin-right: 30px;}
+
