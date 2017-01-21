@@ -18,10 +18,10 @@ THIS IS DONE SO WE DO NOT HAVE TO WRITE A BUNCH OF CODE IN OUR INDEX FILE. */
 app = config(app);
 
 /*CONNECT TO MONGOOSE*/
-mongoose.connect('mongodb://127.0.0.1/store');
-mongoose.connection.on('open',function(){
-	console.log('Mongoose Connected.')
-});
+mongoose.connect('mongodb://<username>:<password>@127.0.0.1:<port>/<collection>');
+   mongoose.connection.on('open',function(){
+         console.log('Mongoose Connected.')
+ });
 
 /* NEED TO DO THIS TO PREVENT PROMISE ERROR FROM HAPPENING */
 mongoose.Promise = global.Promise;
