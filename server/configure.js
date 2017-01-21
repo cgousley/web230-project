@@ -4,8 +4,9 @@ var routes = require('./routes'),
 	express = require('express'),
 	path = require('path'),
 	bodyParser = require('body-parser'),
-	session = require('express-session');
-	cookieParser = require('cookie-parser');
+	session = require('express-session'),
+	cookieParser = require('cookie-parser'),
+	mongoose = require('mongoose'),
 	
 module.exports = function(app){
 	/*SET UP BODYPARSER	*/
@@ -18,6 +19,7 @@ module.exports = function(app){
 		secret: 'thisisasecret',
 		resave: false,
 		saveUninitialized: false,
+		store: new MongoStore({ mongooseConnection: mongoose.connection }),
 		// cookie: {
 	  		// secure: true,
 // 	  		
