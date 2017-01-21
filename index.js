@@ -18,7 +18,7 @@ var express = require('express'),
 THIS IS DONE SO WE DO NOT HAVE TO WRITE A BUNCH OF CODE IN OUR INDEX FILE. */
 app = config(app);
 
- 
+
 /*CONNECT TO MONGOOSE*/
 mongoose.connect('mongodb://<username>:<password>@127.0.0.1:<port>/<collection>');
    mongoose.connection.on('open',function(){
