@@ -9,25 +9,22 @@ module.exports = {
           var url_parts = url.parse(req.url, true);
           var query = url_parts.query;
           
-          
+           //if user already logged in, send to checkout
           if(req.session.success && req.session.user){
              res.redirect('../../checkout');
           } 
            /*IF THERE IS AN ERROR PARAMETER PASSED WITH THE VALUE OF 1 THEN DISPLAY AN ERROR MESSAGE AND SHOW THE LOGIN PAGE.*/
            else if (query.error == 1){
-              // error = "You do not have access to the admin area";
               res.render('user/login',{title: 'Shopping Cart - Login', heading: 'Login Page', nav: true, userHead: true, ackMessage: true});
            }
            else{
-             /*JUST THE DEFAULT LOGIN PAGE NO ERRORS.  THIS WILL BE CALLED WHEN
-             THEY FIRST ACCESS THE LOGIN PAGE. THE ERROR IS SET TO AN EMPTY STRING TO CLEAR OUT ANY PAST ERROR MESSAGE.*/
-             // error = '';
+             // if user not logged in, send to login page
              res.render('user/login',{title: 'Shopping Cart - Login', heading: 'Login Page', nav: true, userHead: true, ackMessage: true});
           }
                    
 },
 
-
+//this checks the user login submission against the database to see if the user can log in
      access: function(req, res){
          	
                         var data = JSON.parse(req.body.data);
@@ -60,12 +57,9 @@ module.exports = {
                          								
                          							};
                          							
-                         							console.log('session made');
-                         							
                          							res.cookie('name', JSON.stringify(user._id));
                          							
                          							res.render('user/checkout');
-                         							console.log('login render made');
 												
 											}
 											

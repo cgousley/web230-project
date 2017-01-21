@@ -3,38 +3,41 @@ var ProductsModel = require('../../models').Products;
 var productDetails = [];
 module.exports = {
 	/*THIS PROVIDES THE CONTENT FOR THE INDEX PAGE*/
-    index: function(req, res){
-
-	Product_GroupsModel.find({}).
-	select({group_name: 1, group_id: 1}).
-	exec(function(err, productGroups){
-		if(err){
-			console.log(err);
-		}
-		else{
-			if(req.session.success && req.session.user){
-				 res.render('user/home',{title: 'Shopping Cart - Home', heading: 'Home Page', cart: true, group: productGroups, product: productDetails, productDescriptions: true, userHead: true});
-           	}
-           	else{
-           		 res.render('user/home',{title: 'Shopping Cart - Home', heading: 'Home Page', nav: true, group: productGroups, product: productDetails, productDescriptions: true, userHead: true});
-           	}
+	index: function(req, res){
+	// Gathers list of product groups for dropdown
+		Product_GroupsModel.find({}).
+		select({group_name: 1, group_id: 1}).
+		exec(function(err, productGroups){
+			if(err){
+				console.log(err);
+			}
+			else{
+				// If user logged in, load home page with shopping cart nav bar
+				if(req.session.success && req.session.user){
+					 res.render('user/home',{title: 'Shopping Cart - Home', heading: 'Home Page', cart: true, group: productGroups, product: productDetails, productDescriptions: true, userHead: true});
+			}
+			else{
+				// If user not logged in, load home page with standard nav bar
+				res.render('user/home',{title: 'Shopping Cart - Home', heading: 'Home Page', nav: true, group: productGroups, product: productDetails, productDescriptions: true, userHead: true});
+			}
 		}
 	});
- 	
- 	},
-    
-    showProductTable: function (req, res) {
-    	data = JSON.parse(req.body.data);
-    	ProductsModel.find({group_id: data.group_id, "removed" : {$ne: "PRODUCT REMOVED"}}).
-						select({fragrance: 1, price: 1, group_id: 1, image_path: 1, image: 1, description: 1, _id: 1}).
-						exec(function(err, productDetails){
-							
-								var table = createProductTable(productDetails);
-								res.send(table);
-		    			});
-    } 	
+
+	},
+	//  Gather list of products based on dropdown selection, feed into createProductTable(), and send      
+	showProductTable: function (req, res) {
+		data = JSON.parse(req.body.data);
+		ProductsModel.find({group_id: data.group_id, "removed" : {$ne: "PRODUCT REMOVED"}}).
+		select({fragrance: 1, price: 1, group_id: 1, image_path: 1, image: 1, description: 1, _id: 1}).
+		exec(function(err, productDetails){
+
+			var table = createProductTable(productDetails);
+			res.send(table);
+		});
+  	} 	
 }
 
+// generates product table
 createProductTable = function(data){
 	// checks to see if there is data in the table
 	if(data.length !== 0){

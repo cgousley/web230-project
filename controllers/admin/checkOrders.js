@@ -2,15 +2,14 @@ var usersModel = require('../../models').Users;
 var ordersModel = require('../../models').Orders;
 var ProductsModel = require('../../models').Products;
 var ObjectId = require('mongoose').Types.ObjectId;
-// PostSchema.plugin(deepPopulate, options /* more on options below */);
 
 module.exports = {
       index: function(req, res){
         /*CHECKS TO SEE IF THE SUCCESS PROPERTY IS IN THE SESSION OBJECT.  IF SO MOVE ON, IF NOT DON'T*/
         if(req.session.success && req.session.admin){
-        	
-        	
-        	usersModel.find({}).
+		
+		/* This gets the customers and their data for the dropdown, then loads the dropdown */
+		usersModel.find({}).
 			select({fname: 1, lname:1, _id: 1}).
 			exec(function(err, users){
 				if(err){
@@ -30,7 +29,6 @@ module.exports = {
        	
        	//If session is success but privlege is user and not admin, redirect to 401
         else if(req.session.success && req.session.user && !req.session.admin){
-        	// res.render('views/401', {nav: true, subtitle: " - Page Not Found", image: "https://httpstatusdogs.com/img/401.jpg",  text: "<p class='lead text-center top20'>You're not authorized to view this page.</br>"+"But you're not stuck! Our navigation bar is above!</p>"});
         	   res.redirect('../401');  
         }
         
@@ -41,17 +39,14 @@ module.exports = {
            }
    },
 
-
+/* this gathers the list of orders for each customer, to be fed into createOrdersListTable maker*/
 showUserTable: function (req, res) {
-    	
-    	
 
-    	data = req.body.data;
+	data = req.body.data;
     	data = JSON.parse(data);
-    	 var customer_id = data.group_id;
-
-
-    	
+    	var customer_id = data.group_id;
+    		
+		//runs the DB search
     	    	ordersModel.find({'orderInfo.customer_id': data.group_id}, function(err, ordersList){
     	    		if(err){
     	    			console.log(err);
@@ -70,6 +65,7 @@ showUserTable: function (req, res) {
  	
 
 
+/* this gathers the order details for the specific order, to be fed into createDetailListTable maker */
 showOrderTable: function (req, res) {
     	data = req.body.data;
     	data = JSON.parse(data);
@@ -87,6 +83,7 @@ showOrderTable: function (req, res) {
     }
 }
 
+/* This creates the table of order details for the selected order*/
 createDetailListTable = function(data){
 
 		var len = data[0].itemInfo.length;
@@ -113,11 +110,9 @@ createDetailListTable = function(data){
 		table += '</tr>';
 		table += '</tbody></table>';
 		return table;
-	
-
-
 }
 
+/* This creates the table of all the orders for the selected customer*/
 createOrdersListTable = function(data){
 	if(data.length !== 0){
 		

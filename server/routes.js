@@ -69,7 +69,7 @@ module.exports = function(app){
 	
 	/* ADDED MULTER TO THE FOLLOWING POST BECAUSE IT WILL BE DOING THE FILE UPLOADS*/
 	router.post('/admin/addproduct', multer({dest:'./public/img'}).single('file'),addProduct.addProduct); 
-	router.post('/admin/updateNow', multer({storage: storage}).single('file'),updateProduct.uPI);
+	router.post('/admin/updateNow', multer({storage: storage}).single('file'),updateProduct.updateProduct);
 	
 	app.use(router);
 }
