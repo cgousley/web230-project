@@ -13,7 +13,10 @@
     "multer":"^1.1.0",
     "bcrypt":"^0.8.7",
     "mongoose-validate":"latest",
-    "cookie-parser":"latest"
+    "cookie-parser":"latest",
+    "form-data": "latest",
+    "connect-mongo": "latest"
+      
+        
    }
 }
-
